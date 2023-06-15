@@ -1,0 +1,447 @@
+/* External CSS style file */
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: #f1f1f1;
+}
+
+
+/* Header (div) formatting */
+.header {
+ padding: 10px;
+ text-align: center;
+ background-image: url("header.jpg"); /* Add the background image */
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
+ opacity: 0.75; /* Set the opacity to 75% */
+ color: #05f9e9;
+}
+
+
+
+
+.header h1 {
+  font-size: 50px;
+  padding: 20px;
+  background-color: #ffd902;
+border: 5px solid  #ffd902;
+}
+
+
+
+
+/* Make the logo have a rounded edge */
+img.top-image {
+  vertical-align: middle;
+}
+
+
+/* CSS Layout from W3Schools: https://www.w3schools.com/css/css_templates.asp */
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #07da97;
+}
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+/* Style the content */
+.content {
+  background-color: #ffcccb;
+  padding: 10px;
+  border-width: 15px;
+  border-color: #FFDAB9;
+  border: 15px solid #FFDAB9;
+ }
+/* Style the footer */
+.footer {
+  background-color: #cccccc;
+  padding: 10px;
+}
+
+
+.timeline {
+ border: 15px solid #90EE90; /* Add the border properties here */
+ border-radius: 15px; /* Optional: Add border radius if you want rounded corners */
+}
+
+
+
+
+.timeline ul {
+ --col-gap: 2rem;
+ --row-gap: 2rem;
+ --line-w: 0.25rem;
+ display: grid;
+ grid-template-columns: var(--line-w) 1fr;
+ grid-auto-columns: max-content;
+ column-gap: var(--col-gap);
+ list-style: none;
+ width: min(60rem, 90%);
+ margin-inline: auto;
+}
+
+
+.timeline h1 {
+ max-width: 60rem;
+ margin: 0 auto;
+ text-align: center;
+ padding: 100px;
+}
+
+
+/* line */
+.timeline ul::before {
+ content: "";
+ grid-column: 1;
+ grid-row: 1 / span 20;
+ background: white; /* Updated background color */
+ border-radius: calc(var(--line-w) / 2);
+}
+
+
+/* columns*/
+
+
+/* row gaps */
+.timeline ul li:not(:last-child) {
+ margin-bottom: var(--row-gap);
+}
+
+
+/* card */
+.timeline ul li {
+ grid-column: 2;
+ --inlineP: 1.5rem;
+ margin-inline: var(--inlineP);
+ grid-row: span 2;
+ display: grid;
+ grid-template-rows: min-content min-content min-content;
+}
+
+
+/* date */
+.timeline ul li .date {
+ --dateH: 3rem;
+ height: var(--dateH);
+ margin-inline: calc(var(--inlineP) * -1);
+
+
+ text-align: center;
+ background-color: var(--accent-color);
+
+
+ color: white;
+ font-size: 1.25rem;
+ font-weight: 700;
+
+
+ display: grid;
+ place-content: center;
+ position: relative;
+
+
+ border-radius: calc(var(--dateH) / 2) 0 0 calc(var(--dateH) / 2);
+ }
+
+
+
+
+/* date flap */
+.timeline ul li .date::before {
+ content: "";
+ width: var(--inlineP);
+ aspect-ratio: 1;
+ background: var(--accent-color);
+ background-image: linear-gradient(rgba(0, 0, 0, 0.2) 100%, transparent);
+ position: absolute;
+ top: 100%;
+
+
+ clip-path: polygon(0 0, 100% 0, 0 100%);
+ right: 0;
+}
+
+
+/* circle */
+.timeline ul li .date::after {
+ content: "";
+ position: absolute;
+ width: 2rem;
+ aspect-ratio: 1;
+ background: var(--bgColor);
+ border: 0.3rem solid var(--accent-color);
+ border-radius: 50%;
+ top: 50%;
+
+
+ transform: translate(50%, -50%);
+ right: calc(100% + var(--col-gap) + var(--line-w) / 2);
+}
+
+
+:root {
+ --bgColor: #D8F2FF; /* Update the background color variable */
+}
+/* title descr */
+.timeline ul li .title,
+.timeline ul li .descr {
+ background: var(--bgColor);
+ position: relative;
+ padding-inline: 1.5rem;
+}
+
+
+.timeline ul li .title {
+ overflow: hidden;
+ padding-block-start: 1.5rem;
+ padding-block-end: 1rem;
+ font-weight: 500;
+}
+
+
+.timeline ul li .descr {
+ padding-block-end: 1.5rem;
+ font-weight: 300;
+}
+
+
+/* shadows */
+.timeline ul li .title::before,
+.timeline ul li .descr::before {
+ content: "";
+ position: absolute;
+ width: 90%;
+ height: 0.5rem;
+ background: rgba(0, 0, 0, 0.5);
+ left: 50%;
+ border-radius: 50%;
+ filter: blur(4px);
+ transform: translate(-50%, 50%);
+}
+
+
+.timeline ul li .title::before {
+ bottom: calc(100% + 0.125rem);
+}
+
+
+.timeline ul li .descr::before {
+ z-index: -1;
+ bottom: 0.25rem;
+}
+
+
+@media (min-width: 40rem) {
+ .timeline ul {
+   grid-template-columns: 1fr var(--line-w) 1fr;
+ }
+  .timeline ul::before {
+   grid-column: 2;
+ }
+ 
+ /* Style the footer */
+ .footer {
+   background-color: #cccccc;
+   padding: 10px;
+ }
+  .timeline ul li:nth-child(odd) {
+   grid-column: 1;
+ }
+  .timeline ul li:nth-child(even) {
+   grid-column: 3;
+ }
+
+
+ /* start second card */
+ .timeline ul li:nth-child(2) {
+   grid-row: 2/4;
+ }
+
+
+ .timeline ul li:nth-child(odd) .date::before {
+   clip-path: polygon(0 0, 100% 0, 100% 100%);
+   left: 0;
+ }
+
+
+ .timeline ul li:nth-child(odd) .date::after {
+   transform: translate(-50%, -50%);
+   left: calc(100% + var(--col-gap) + var(--line-w) / 2);
+ }
+  .timeline ul li:nth-child(odd) .date {
+   border-radius: 0 calc(var(--dateH) / 2) calc(var(--dateH) / 2) 0;
+ }
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.video-container p {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  background-color: #90EE90;
+border: 5px solid  #90EE90;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+Text-align: center;
+ border-radius: 15px;
+color: rgb(0, 0, 0);
+}
+
+.video-container video {
+  width: 1420px;
+  height: 580px;
+  background-color: #90baee;
+border: 5px solid  #90baee;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  max-width: 1050px;
+  width: 90%;
+  margin: auto;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #ffffff; /* Add background color */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-container {
+  display: block;
+  position: relative;
+  height: 60px;
+}
+
+.nav-container .checkbox {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 32px;
+  top: 20px;
+  right: 20px; /* Move the checkbox to the right side */
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.nav-container .hamburger-lines {
+  display: block;
+  height: 26px;
+  width: 32px;
+  position: absolute;
+  top: 17px;
+  right: 20px; /* Move the hamburger lines to the right side */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-container .hamburger-lines .line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: #0e2431;
+}
+
+.nav-container .hamburger-lines .line1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line2 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.navbar .menu-items {
+  padding-top: 120px;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  height: 100vh;
+  width: 100%;
+  transform: translate(150%); /* Move the menu-items to the right */
+  display: flex;
+  flex-direction: column;
+  margin-right: -40px; /* Adjust the negative margin */
+  padding-right: 50px; /* Adjust the padding */
+  transition: transform 0.5s ease-in-out;
+  text-align: center;
+}
+
+.navbar .menu-items li {
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.logo {
+  position: absolute;
+  top: 5px;
+  left: 15px; /* Move the logo to the left side */
+  font-size: 1.2rem;
+  color: #0e2431;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items {
+  transform: translateX(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+  transform: rotate(45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+  transform: scaleY(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+  transform: rotate(-45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .logo {
+  display: none;
+}
